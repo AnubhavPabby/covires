@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/app_navigation"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.trippyheads.covires.ui.fragments.HomeFragment"
+        android:label="@string/app_name"
+        tools:layout="@layout/fragment_home" >
+
+        <action
+            android:id="@+id/action_homeFragment_to_helpRequestFormFragment2"
+            app:destination="@id/helpRequestFormFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_helpRequests"
+            app:destination="@id/helpRequests" />
+        <action
+            android:id="@+id/action_homeFragment_to_knowAboutResourcesFragment"
+            app:destination="@id/knowAboutResourcesFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_provideResourcesFormFragment"
+            app:destination="@id/provideResourcesFormFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/helpRequestFormFragment"
+        android:name="com.trippyheads.covires.ui.fragments.HelpRequestFormFragment"
+        android:label="fragment_help_request_form"
+        tools:layout="@layout/fragment_help_request_form" />
+
+    <fragment
+        android:id="@+id/helpRequests"
+        android:name="com.trippyheads.covires.ui.fragments.HelpRequests"
+        android:label="fragment_help_requests"
+        tools:layout="@layout/fragment_help_requests" />
+
+    <fragment
+        android:id="@+id/knowAboutResourcesFragment"
+        android:name="com.trippyheads.covires.ui.fragments.KnowAboutResourcesFragment"
+        android:label="fragment_know_about_resources"
+        tools:layout="@layout/fragment_know_about_resources" />
+
+    <fragment
+        android:id="@+id/provideResourcesFormFragment"
+        android:name="com.trippyheads.covires.ui.fragments.ProvideResourcesFormFragment"
+        android:label="fragment_provide_resources_form"
+        tools:layout="@layout/fragment_provide_resources_form" />
+
+    <fragment
+        android:id="@+id/feedbackFragment"
+        android:name="com.trippyheads.covires.ui.fragments.FeedbackFragment"
+        android:label="Feedback For Us"
+        tools:layout="@layout/fragment_feedback" />
+
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="com.trippyheads.covires.ui.fragments.AboutFragment"
+        android:label="About Us"
+        tools:layout="@layout/fragment_about" />
+</navigation>

@@ -21,6 +21,15 @@ class LauncherActivity : AppCompatActivity() {
         binding = ActivityLauncherBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val appBarConfiguration = AppBarConfiguration(setOf(R.id.homeFragment,R.id.feedbackFragment,R.id.aboutFragment))
+
+        val navHostFragment: NavHostFragment = supportFragmentManager.findFragmentById(R.id.home_nav) as NavHostFragment
+        val navController: NavController = navHostFragment.navController
+
+        setupActionBarWithNavController(navController, appBarConfiguration)
+
+        binding.bttmNavViewItems.setupWithNavController(navController)
+
         Timber.d("Hello Guys, this is starting point of CoviRes App")
     }
 
