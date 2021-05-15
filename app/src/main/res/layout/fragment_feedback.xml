@@ -8,7 +8,7 @@
 
     <!-- TODO: Update blank fragment layout -->
     <TextView
-        android:id="@+id/tvHead"
+        android:id="@+id/tvFBHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
@@ -31,7 +31,7 @@
         app:layout_constraintBottom_toTopOf="@+id/etFBSug"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvHead" />
+        app:layout_constraintTop_toBottomOf="@+id/tvFBHead" />
 
     <EditText
         android:id="@+id/etFBSug"
