@@ -123,8 +123,8 @@
 
         <EditText
             android:id="@+id/etResDes"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_width="360dp"
+            android:layout_height="126dp"
             android:layout_marginStart="2dp"
             android:layout_marginTop="32dp"
             android:background="@drawable/textbox"
@@ -133,7 +133,8 @@
             android:gravity="start|top"
             android:hint="Describe Your Resource"
             android:inputType="textMultiLine"
-            android:padding="50dp" />
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp" />
 
         <Button
             android:id="@+id/btnResSub"
@@ -141,7 +142,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginLeft="50dp"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="35dp"
             android:layout_marginRight="50dp"
             android:background="@drawable/button_3"
             android:text="Submit" />

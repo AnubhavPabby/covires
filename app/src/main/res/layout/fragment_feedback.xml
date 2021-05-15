@@ -52,29 +52,37 @@
         <EditText
             android:id="@+id/suggestionEditTexttFB"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="199dp"
             android:layout_marginTop="20dp"
             android:background="@drawable/textbox"
+
             android:ems="10"
+            android:gravity="top"
             android:hint="Write you suggestion."
-            android:inputType="textPersonName"
-            android:padding="70dp"
+            android:inputType="textPersonName|textMultiLine"
+            android:paddingLeft="10dp"
+            android:paddingTop="5dp"
             tools:layout_editor_absoluteX="106dp"
-            tools:layout_editor_absoluteY="148dp" />
+            tools:layout_editor_absoluteY="148dp"
+            android:scrollHorizontally="false"/>
 
         <EditText
             android:id="@+id/difficultEditTextFB"
             android:layout_width="match_parent"
             android:layout_height="181dp"
             android:layout_marginTop="20dp"
+            android:singleLine="false"
             android:background="@drawable/textbox"
+            android:contentDescription="f"
             android:ems="10"
-            android:hint="Please write what difficulties \nclose you faced."
-            android:inputType="textPersonName"
+            android:gravity="top"
+            android:hint="Please write what difficulties \nyou faced."
+            android:inputType="textPersonName|textMultiLine"
             android:paddingLeft="10dp"
             android:paddingTop="5dp"
             tools:layout_editor_absoluteX="106dp"
-            tools:layout_editor_absoluteY="323dp" />
+            tools:layout_editor_absoluteY="323dp"
+            android:scrollHorizontally="false"/>
 
         <Button
             android:id="@+id/btnFBSub"
