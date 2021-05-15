@@ -1,120 +1,151 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".ui.fragments.ProvideResourcesFormFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/tvResHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:fontFamily="monospace"
         android:text="Helping Hand"
-        android:textSize="25sp"
+        android:textColor="#000000"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
 
-    <EditText
-        android:id="@+id/etResName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="52dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="28dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tvResHead" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0">
 
-    <EditText
-        android:id="@+id/etResEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Email-Id"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/etResName"
-        app:layout_constraintTop_toBottomOf="@+id/etResName" />
+        <EditText
+            android:id="@+id/etResName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="52dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/etResWeb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="1dp"
-        android:ems="10"
-        android:hint="Website Name"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etResEmail"
-        app:layout_constraintTop_toBottomOf="@+id/etResEmail" />
+        <EditText
+            android:id="@+id/etResEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Email-Id"
+            android:inputType="textEmailAddress"
+            android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/etResContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Contact"
-        android:inputType="phone"
-        app:layout_constraintStart_toStartOf="@+id/etResWeb"
-        app:layout_constraintTop_toBottomOf="@+id/etResWeb" />
+        <EditText
+            android:id="@+id/etResWeb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Website Name"
+            android:inputType="textPersonName"
+            android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/etResState"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:ems="10"
-        android:hint="State"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etResContact"
-        app:layout_constraintTop_toBottomOf="@+id/etResContact" />
+        <EditText
+            android:id="@+id/etResContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Contact"
+            android:inputType="phone"
+            android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/etResCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="2dp"
-        android:ems="10"
-        android:hint="City"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etResState"
-        app:layout_constraintTop_toBottomOf="@+id/etResState" />
+        <EditText
+            android:id="@+id/etResState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="State"
+            android:inputType="textPersonName"
+            android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/etResResType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Resource Type"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etResCity"
-        app:layout_constraintTop_toBottomOf="@+id/etResCity" />
+        <EditText
+            android:id="@+id/etResCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="City"
+            android:inputType="textPersonName"
+            android:padding="8dp" />
 
-    <EditText
-        android:id="@+id/etResDes"
-        android:hint="Describe Your Resource"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="2dp"
-        android:layout_marginLeft="2dp"
-        android:layout_marginTop="32dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:inputType="textMultiLine"
-        app:layout_constraintStart_toStartOf="@+id/etResResType"
-        app:layout_constraintTop_toBottomOf="@+id/etResResType" />
+        <EditText
+            android:id="@+id/etResResType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Resource Type"
+            android:inputType="textPersonName"
+            android:padding="8dp" />
 
-    <Button
-        android:id="@+id/btnResSub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="42dp"
-        android:text="Submit"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etResDes" />
+        <EditText
+            android:id="@+id/etResDes"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="2dp"
+            android:layout_marginTop="32dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Describe Your Resource"
+            android:inputType="textMultiLine"
+            android:padding="50dp" />
+
+        <Button
+            android:id="@+id/btnResSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="40dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_3"
+            android:text="Submit" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,103 +7,157 @@
     tools:context=".ui.fragments.HelpRequestFormFragment">
 
     <!-- TODO: Update blank fragment layout -->
+
     <TextView
         android:id="@+id/tvReqHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:fontFamily="monospace"
+        android:textStyle="bold"
         android:text="Request Help Form"
-        android:textSize="25sp"
+        android:textColor="#000000"
+        android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/etReqName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="1dp"
-        android:layout_marginLeft="1dp"
-        android:layout_marginTop="47dp"
-        android:ems="10"
-        android:hint="Name"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/tvReqHead"
-        app:layout_constraintTop_toBottomOf="@+id/tvReqHead" />
-
-    <EditText
-        android:id="@+id/etReqEmail"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Email-Id"
-        android:inputType="textEmailAddress"
-        app:layout_constraintStart_toStartOf="@+id/etReqName"
-        app:layout_constraintTop_toBottomOf="@+id/etReqName" />
-
-    <EditText
-        android:id="@+id/etReqContact"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Contact"
-        android:inputType="phone"
-        app:layout_constraintStart_toStartOf="@+id/etReqEmail"
-        app:layout_constraintTop_toBottomOf="@+id/etReqEmail" />
-
-    <EditText
-        android:id="@+id/etReqState"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="State"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etReqContact"
-        app:layout_constraintTop_toBottomOf="@+id/etReqContact" />
-
-    <EditText
-        android:id="@+id/etReqCity"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="City"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etReqState"
-        app:layout_constraintTop_toBottomOf="@+id/etReqState" />
-
-    <EditText
-        android:id="@+id/etReqResType"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:hint="Resource Type"
-        android:inputType="textPersonName"
-        app:layout_constraintStart_toStartOf="@+id/etReqCity"
-        app:layout_constraintTop_toBottomOf="@+id/etReqCity" />
-
-    <EditText
-        android:id="@+id/etReqDes"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginRight="1dp"
-        android:ems="10"
-        android:gravity="start|top"
-        android:hint="Please describe the resource you need"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="@+id/etReqResType"
-        app:layout_constraintTop_toBottomOf="@+id/etReqResType" />
-
-    <Button
-        android:id="@+id/btnReqSub"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="69dp"
-        android:text="Submit"
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="30dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="5dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/etReqDes" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/etReqName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="54dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Name"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/tvReqHead"
+            app:layout_constraintTop_toBottomOf="@+id/tvReqHead" />
+
+        <EditText
+            android:id="@+id/etReqEmail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Email-Id"
+            android:inputType="textEmailAddress"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/etReqName"
+            app:layout_constraintTop_toBottomOf="@+id/etReqName" />
+
+        <EditText
+            android:id="@+id/etReqContact"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Contact"
+            android:inputType="phone"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/etReqEmail"
+            app:layout_constraintTop_toBottomOf="@+id/etReqEmail" />
+
+        <EditText
+            android:id="@+id/etReqState"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="State"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/etReqContact"
+            app:layout_constraintTop_toBottomOf="@+id/etReqContact" />
+
+        <EditText
+            android:id="@+id/etReqCity"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="City"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/etReqState"
+            app:layout_constraintTop_toBottomOf="@+id/etReqState" />
+
+        <EditText
+            android:id="@+id/etReqResType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:background="@drawable/textbox"
+            android:drawablePadding="15dp"
+            android:ems="10"
+            android:hint="Resource Type"
+            android:inputType="textPersonName"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="@+id/etReqCity"
+            app:layout_constraintTop_toBottomOf="@+id/etReqCity" />
+
+        <EditText
+            android:id="@+id/etReqDes"
+            android:layout_width="371dp"
+            android:layout_height="119dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="1dp"
+            android:layout_marginRight="1dp"
+            android:background="@drawable/textbox"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="Please describe the resource you need"
+            android:inputType="textMultiLine"
+            android:paddingLeft="15dp"
+            android:paddingTop="5dp"
+            app:layout_constraintEnd_toEndOf="@+id/etReqResType"
+            app:layout_constraintTop_toBottomOf="@+id/etReqResType" />
+
+        <Button
+            android:id="@+id/btnReqSub"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginLeft="50dp"
+            android:layout_marginTop="45dp"
+            android:layout_marginRight="50dp"
+            android:background="@drawable/button_3"
+            android:gravity="center"
+            android:text="Submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etReqDes" />
+    </LinearLayout>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
