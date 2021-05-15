@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "944152730866",
+    "project_id": "covires-a5452",
+    "storage_bucket": "covires-a5452.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:944152730866:android:7e576f2b377ab3e4b8046b",
+        "android_client_info": {
+          "package_name": "com.trippyheads.covires"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "944152730866-o9s32hu2tc4hmvak634dq66tg6fhudvm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB5jfY43ssH63M4KE-35veDXWY8Z9wlPNU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "944152730866-o9s32hu2tc4hmvak634dq66tg6fhudvm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
