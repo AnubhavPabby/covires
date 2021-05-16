@@ -5,7 +5,15 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.trippyheads.covires.data.models.ProvideResourcesModel
 import com.trippyheads.covires.databinding.FragmentKnowAboutResourcesBinding
+import com.trippyheads.covires.ui.adapters.KnowAboutResourcesAdapter
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +33,12 @@ class KnowAboutResourcesFragment : Fragment() {
     private var _binding: FragmentKnowAboutResourcesBinding? = null
     private val binding get() = _binding!!
 
+    private val firestore by lazy {
+        Firebase.firestore
+    }
+
+    private lateinit var adapter: KnowAboutResourcesAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,7 +53,40 @@ class KnowAboutResourcesFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentKnowAboutResourcesBinding.inflate(inflater, container, false)
+
+        val query: Query = firestore
+            .collection(RESOURCE_PROVIDER_COLLECTION)
+            .orderBy(TIMESTAMP_FIELD)
+
+        val options: FirestoreRecyclerOptions<ProvideResourcesModel> = FirestoreRecyclerOptions.Builder<ProvideResourcesModel>()
+            .setQuery(query, ProvideResourcesModel::class.java)
+            .build()
+
+        setupResourcesList(options)
+
         return binding.root
+    }
+
+    private fun setupResourcesList(options: FirestoreRecyclerOptions<ProvideResourcesModel>) {
+        binding.rvResourceProviders.layoutManager = LinearLayoutManager(requireActivity().applicationContext)
+        adapter = KnowAboutResourcesAdapter(options)
+        if(::adapter.isInitialized) {
+            binding.rvResourceProviders.adapter = adapter
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(::adapter.isInitialized) {
+            adapter.startListening()
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if(::adapter.isInitialized) {
+            adapter.stopListening()
+        }
     }
 
     override fun onDestroyView() {
@@ -48,6 +95,9 @@ class KnowAboutResourcesFragment : Fragment() {
     }
 
     companion object {
+        private const val RESOURCE_PROVIDER_COLLECTION = "resource_providers"
+        private const val TIMESTAMP_FIELD = "providerListingResourceDate"
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.

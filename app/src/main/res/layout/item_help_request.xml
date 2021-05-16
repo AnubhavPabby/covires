@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="5dp"
         android:layout_marginEnd="8dp"
 
         app:cardCornerRadius="10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -20,7 +21,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:background="#2979FF">
-
 
             <View
                 android:id="@+id/view"
@@ -32,7 +32,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView2"
+                android:id="@+id/tvState"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="68dp"
@@ -46,7 +46,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView3"
+                android:id="@+id/tvStateName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
@@ -56,11 +56,11 @@
                 android:textColor="#FFFFFF"
                 android:textSize="30sp"
                 android:textStyle="bold"
-                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintStart_toEndOf="@+id/tvState"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
-                android:id="@+id/textView18"
+                android:id="@+id/tvCity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -71,10 +71,10 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView2" />
+                app:layout_constraintTop_toBottomOf="@+id/tvState" />
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/tvResourcesType"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -85,10 +85,10 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView20" />
+                app:layout_constraintTop_toBottomOf="@+id/tvResourceProvider" />
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/tvResourceProvider"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -99,10 +99,10 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView21" />
+                app:layout_constraintTop_toBottomOf="@+id/tvContact" />
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/tvContact"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="5dp"
@@ -113,7 +113,7 @@
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView18" />
+                app:layout_constraintTop_toBottomOf="@+id/tvCity" />
 
             <TextView
                 android:id="@+id/textView22"
@@ -130,35 +130,21 @@
                 app:layout_constraintTop_toBottomOf="@+id/textView24" />
 
             <TextView
-                android:id="@+id/textView23"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="10dp"
-                android:fontFamily="sans-serif-condensed"
-                android:text="Website:"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/requirment" />
-
-            <TextView
                 android:id="@+id/textView24"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="5dp"
-                android:layout_marginTop="30dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="104dp"
                 android:fontFamily="sans-serif-condensed"
                 android:text="Updated at:"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/textView23" />
+                app:layout_constraintTop_toBottomOf="@+id/tvResourcesType" />
 
             <TextView
-                android:id="@+id/textView39"
+                android:id="@+id/tvCityName"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="122dp"
@@ -168,11 +154,11 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView18"
-                app:layout_constraintTop_toBottomOf="@+id/textView3" />
+                app:layout_constraintStart_toEndOf="@+id/tvCity"
+                app:layout_constraintTop_toBottomOf="@+id/tvStateName" />
 
             <TextView
-                android:id="@+id/contactNo"
+                android:id="@+id/tvContactNo"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="11dp"
@@ -180,11 +166,12 @@
                 android:text="user Contact no."
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
-                app:layout_constraintStart_toEndOf="@+id/textView21"
-                app:layout_constraintTop_toBottomOf="@+id/textView39" />
+                app:layout_constraintEnd_toEndOf="@+id/tvCityName"
+                app:layout_constraintStart_toEndOf="@+id/tvContact"
+                app:layout_constraintTop_toBottomOf="@+id/tvCityName" />
 
             <TextView
-                android:id="@+id/name"
+                android:id="@+id/tvDistrictName"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="104dp"
@@ -194,8 +181,8 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView20"
-                app:layout_constraintTop_toBottomOf="@+id/contactNo" />
+                app:layout_constraintStart_toEndOf="@+id/tvResourceProvider"
+                app:layout_constraintTop_toBottomOf="@+id/tvContactNo" />
 
             <TextView
                 android:id="@+id/requirment"
@@ -211,39 +198,25 @@
                 android:textSize="20sp"
 
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView19"
-                app:layout_constraintTop_toBottomOf="@+id/name" />
+                app:layout_constraintStart_toEndOf="@+id/tvResourcesType"
+                app:layout_constraintTop_toBottomOf="@+id/tvDistrictName" />
 
             <TextView
-                android:id="@+id/webSite"
-                android:layout_width="220dp"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="80dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="13dp"
-                android:text="providerWebsite"
-                android:textColor="#FFFFFF"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toEndOf="@+id/textView23"
-                app:layout_constraintTop_toBottomOf="@+id/requirment" />
-
-            <TextView
-                android:id="@+id/updatedAt"
+                android:id="@+id/tvUpdatedAt"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="56dp"
-                android:layout_marginTop="30dp"
                 android:layout_marginEnd="11dp"
                 android:text="updateTiming"
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/textView24"
-                app:layout_constraintTop_toBottomOf="@+id/webSite" />
+                app:layout_constraintTop_toTopOf="@+id/textView24" />
 
             <TextView
-                android:id="@+id/description"
+                android:id="@+id/tvResourceDescription"
                 android:layout_width="220dp"
                 android:layout_height="143dp"
                 android:layout_marginStart="52dp"
@@ -255,13 +228,13 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.444"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toEndOf="@+id/textView22"
-                app:layout_constraintTop_toBottomOf="@+id/updatedAt" />
+                app:layout_constraintTop_toBottomOf="@+id/tvUpdatedAt" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.cardview.widget.CardView>
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</FrameLayout>
