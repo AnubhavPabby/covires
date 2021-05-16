@@ -1,11 +1,20 @@
 package com.trippyheads.covires.ui.fragments
 
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.trippyheads.covires.data.models.FeedbackModel
 import com.trippyheads.covires.databinding.FragmentFeedbackBinding
+import timber.log.Timber
+import java.util.*
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +34,10 @@ class FeedbackFragment : Fragment() {
     private var _binding: FragmentFeedbackBinding? = null
     private val binding get() = _binding!!
 
+    private val firestore by lazy {
+        Firebase.firestore
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -42,12 +55,110 @@ class FeedbackFragment : Fragment() {
         return binding.root
     }
 
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.etFBContact.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable) {
+                if (binding.etFBContact.text.toString().isEmpty() || binding.etFBContact.text.toString().isBlank() || binding.etFBContact.text.toString().trim().length != 10) {
+                    binding.etFBContact.error = "Please enter a valid phone number"
+                }
+            }
+        })
+
+        binding.etFBSuggestion.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable) {
+                if (binding.etFBSuggestion.text.toString().isEmpty() || binding.etFBSuggestion.text.toString().isBlank()) {
+                    binding.etFBSuggestion.error = "Please don't provide the empty input for suggestions section"
+                }
+            }
+        })
+
+        binding.etFBDifficultyFaced.addTextChangedListener(object : TextWatcher {
+            override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
+            override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
+            override fun afterTextChanged(s: Editable) {
+                if (binding.etFBDifficultyFaced.text.toString().isEmpty() || binding.etFBDifficultyFaced.text.toString().isBlank()) {
+                    binding.etFBDifficultyFaced.error = "Please don't provide the empty input for diffculty faced section"
+                }
+            }
+        })
+
+
+        binding.btnFBSub.setOnClickListener {
+            if (!checkWhetherFeedbackProvidedIsCorrect()) {
+                return@setOnClickListener
+            }
+
+            val feedback = getData()
+
+            firestore
+                .collection(FEEDBACK_COLLECTION)
+                .document(feedback.feedbackId)
+                .set(feedback)
+                .addOnSuccessListener {
+                    Timber.d("Feedback Document successfully uploaded in firestore!")
+
+                    Snackbar.make(
+                        binding.btnFBSub,
+                        "Your feedback is successfully uploaded",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+
+                }
+                .addOnFailureListener { e ->
+                    Timber.w("Error updating feedback document ${e.printStackTrace()}")
+
+                    Snackbar.make(
+                        binding.btnFBSub,
+                        "Error Occured while uploading your feedback.Please try again",
+                        Snackbar.LENGTH_LONG
+                    ).show()
+                }
+        }
+    }
+
+    private fun checkWhetherFeedbackProvidedIsCorrect(): Boolean {
+
+        var isCorrect = true
+
+        if (binding.etFBContact.text.toString().isEmpty() || binding.etFBContact.text.toString().isBlank() || binding.etFBContact.text.toString().trim().length != 10) {
+            binding.etFBContact.error = "Please enter a valid phonenumber"
+            isCorrect = false
+        }
+        if (binding.etFBDifficultyFaced.text.toString().isEmpty() || binding.etFBDifficultyFaced.text.toString().isBlank()) {
+            binding.etFBDifficultyFaced.error = "Please don't provide the empty input for diffculty faced section"
+            isCorrect = false
+        }
+        if (binding.etFBSuggestion.text.toString().isEmpty() || binding.etFBSuggestion.text.toString().isBlank()) {
+            binding.etFBSuggestion.error = "Please don't provide the empty input for suggestions section"
+            isCorrect = false
+        }
+
+        return isCorrect
+    }
+
+    private fun getData(): FeedbackModel {
+        return FeedbackModel(
+            UUID.randomUUID().toString(),
+            binding.etFBContact.text.toString().trim(),
+            binding.etFBDifficultyFaced.text.toString().trim(),
+            binding.etFBSuggestion.text.toString().trim(),
+        )
+    }
+
     override fun onDestroyView() {
         super.onDestroyView()
         _binding = null
     }
 
     companion object {
+        private const val FEEDBACK_COLLECTION = "feedback"
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
