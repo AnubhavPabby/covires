@@ -97,8 +97,8 @@
                         android:textColor="#ffff" />
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_alignParentRight="true"
                         android:maxHeight="100dp"
                         android:src="@drawable/resource" />
@@ -144,8 +144,8 @@
                         android:textColor="#ffff" />
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_alignParentRight="true"
                         android:maxHeight="100dp"
                         android:src="@drawable/help" />
@@ -191,8 +191,8 @@
                         android:textColor="#ffff" />
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_alignParentRight="true"
                         android:maxHeight="100dp"
                         android:src="@drawable/want_to_help" />
@@ -219,7 +219,7 @@
                         android:id="@+id/t3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="2dp"
                         android:layout_marginTop="10dp"
                         android:fontFamily="serif"
                         android:text="Provide Resources"
@@ -231,15 +231,15 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_below="@+id/t3"
-                        android:layout_marginLeft="10dp"
+                        android:layout_marginLeft="2dp"
                         android:layout_marginTop="3dp"
                         android:fontFamily="sans-serif-condensed-medium"
                         android:text="If you want to help others, \ncloseYou can add your resources here."
                         android:textColor="#ffff" />
 
                     <ImageView
-                        android:layout_width="100dp"
-                        android:layout_height="100dp"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
                         android:layout_alignParentRight="true"
                         android:maxHeight="100dp"
                         android:src="@drawable/provide_resources" />
