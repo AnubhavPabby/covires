@@ -8,6 +8,15 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <View
+        android:id="@+id/view5"
+        android:layout_width="250dp"
+        android:layout_height="3dp"
+        android:background="#000000"
+        app:layout_constraintEnd_toEndOf="@+id/tvFBHead"
+        app:layout_constraintStart_toStartOf="@+id/tvFBHead"
+        app:layout_constraintTop_toBottomOf="@+id/tvFBHead" />
+
     <TextView
         android:id="@+id/tvFBHead"
         android:layout_width="wrap_content"
