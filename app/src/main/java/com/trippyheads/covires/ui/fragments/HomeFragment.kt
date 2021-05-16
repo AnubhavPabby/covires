@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import com.trippyheads.covires.databinding.FragmentHomeBinding
 
 // TODO: Rename parameter arguments, choose names that match
@@ -40,6 +41,30 @@ class HomeFragment : Fragment() {
     ): View {
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        binding.cvKnowAboutResources.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToKnowAboutResourcesFragment()
+            it.findNavController().navigate(action)
+        }
+
+        binding.cvRequestHelp.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToHelpRequestFormFragment()
+            it.findNavController().navigate(action)
+        }
+
+        binding.cvAcceptRequest.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToHelpRequests()
+            it.findNavController().navigate(action)
+        }
+
+        binding.cvProvideResources.setOnClickListener {
+            val action = HomeFragmentDirections.actionHomeFragmentToProvideResourcesFormFragment()
+            it.findNavController().navigate(action)
+        }
     }
 
     override fun onDestroyView() {
