@@ -165,11 +165,11 @@ class ProvideResourcesFormFragment : Fragment() {
 
             }
             .addOnFailureListener { error ->
-                Timber.w("Error updating provider resource document ${error.printStackTrace()}")
+                Timber.w("Error uploading provider resource document ${error.printStackTrace()}")
 
                 Snackbar.make(
                     binding.btnResProvSubmit,
-                    "Error Occured while uploading you as provider for given resource.Please try again",
+                    "Error occurred while uploading you as provider for given resource.Please try again",
                     Snackbar.LENGTH_LONG
                 ).show()
             }
@@ -235,7 +235,7 @@ class ProvideResourcesFormFragment : Fragment() {
             binding.etResProvPincode.text.toString().trim(),
             binding.etResProvDistrict.text.toString().trim(),
             binding.etResProvResType.text.toString().trim(),
-            binding.etResProvResDesc.text.toString().trim(),
+            binding.etResProvResDesc.text.toString().trim()
         )
     }
 

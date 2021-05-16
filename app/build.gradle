@@ -74,6 +74,10 @@ dependencies {
     // Firebase-Firestore Dependency
     implementation 'com.google.firebase:firebase-firestore-ktx'
 
+    // FirebaseUI for Cloud Firestore
+    def firebase_firestore_version = "7.1.1"
+    implementation "com.firebaseui:firebase-ui-firestore:$firebase_firestore_version"
+
     // Timber Dependency
     def timber_version = "4.7.1"
     implementation "com.jakewharton.timber:timber:$timber_version"

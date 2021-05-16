@@ -128,7 +128,8 @@
                 android:drawablePadding="15dp"
                 android:ems="10"
                 android:hint="Pincode"
-                android:inputType="textPersonName" />
+                android:inputType="numberSigned"
+                android:maxLength="6" />
 
             <EditText
                 android:id="@+id/etResProvDistrict"
