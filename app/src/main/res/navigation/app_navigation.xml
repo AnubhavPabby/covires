@@ -12,7 +12,7 @@
         tools:layout="@layout/fragment_home" >
 
         <action
-            android:id="@+id/action_homeFragment_to_helpRequestFormFragment2"
+            android:id="@+id/action_homeFragment_to_helpRequestFormFragment"
             app:destination="@id/helpRequestFormFragment" />
         <action
             android:id="@+id/action_homeFragment_to_helpRequests"

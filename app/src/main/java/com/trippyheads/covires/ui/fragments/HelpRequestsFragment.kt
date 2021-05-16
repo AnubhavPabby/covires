@@ -5,7 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.firebase.ui.firestore.FirestoreRecyclerOptions
+import com.google.firebase.firestore.Query
+import com.google.firebase.firestore.ktx.firestore
+import com.google.firebase.ktx.Firebase
+import com.trippyheads.covires.data.models.HelpRequestModel
+import com.trippyheads.covires.data.models.ProvideResourcesModel
 import com.trippyheads.covires.databinding.FragmentHelpRequestsBinding
+import com.trippyheads.covires.ui.adapters.HelpRequestsAdapter
+import com.trippyheads.covires.ui.adapters.KnowAboutResourcesAdapter
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -25,6 +34,12 @@ class HelpRequests : Fragment() {
     private var _binding: FragmentHelpRequestsBinding? = null
     private val binding get() = _binding!!
 
+    private val firestore by lazy {
+        Firebase.firestore
+    }
+
+    private lateinit var adapter: HelpRequestsAdapter
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -39,7 +54,40 @@ class HelpRequests : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentHelpRequestsBinding.inflate(inflater, container, false)
+
+        val query: Query = firestore
+            .collection(HELP_REQUEST_COLLECTION)
+            .orderBy(TIMESTAMP_FIELD)
+
+        val options: FirestoreRecyclerOptions<HelpRequestModel> = FirestoreRecyclerOptions.Builder<HelpRequestModel>()
+            .setQuery(query, HelpRequestModel::class.java)
+            .build()
+
+        setupResourcesList(options)
+
         return binding.root
+    }
+
+    private fun setupResourcesList(options: FirestoreRecyclerOptions<HelpRequestModel>) {
+        binding.rvResourceProviders.layoutManager = LinearLayoutManager(requireActivity().applicationContext)
+        adapter = HelpRequestsAdapter(options)
+        if(::adapter.isInitialized) {
+            binding.rvResourceProviders.adapter = adapter
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        if(::adapter.isInitialized) {
+            adapter.startListening()
+        }
+    }
+
+    override fun onStop() {
+        super.onStop()
+        if(::adapter.isInitialized) {
+            adapter.stopListening()
+        }
     }
 
     override fun onDestroyView() {
@@ -49,6 +97,10 @@ class HelpRequests : Fragment() {
 
 
     companion object {
+        private const val HELP_REQUEST_COLLECTION = "help_requests"
+        private const val TIMESTAMP_FIELD = "requestHelpDate"
+
+
         /**
          * Use this factory method to create a new instance of
          * this fragment using the provided parameters.
