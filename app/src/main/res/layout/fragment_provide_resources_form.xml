@@ -7,11 +7,11 @@
     tools:context=".ui.fragments.ProvideResourcesFormFragment">
 
     <!-- TODO: Update blank fragment layout -->
-
     <TextView
         android:id="@+id/tvResHead"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginVertical="28dp"
         android:fontFamily="monospace"
         android:text="Helping Hand"
         android:textColor="#000000"
@@ -19,134 +19,171 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/linearLayout" />
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <LinearLayout
-        android:id="@+id/linearLayout"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="0dp"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="28dp"
         android:layout_marginEnd="20dp"
-        android:layout_marginBottom="5dp"
-        android:orientation="vertical"
+        android:layout_marginTop="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0">
+        app:layout_constraintTop_toBottomOf="@+id/tvResHead">
 
-        <EditText
-            android:id="@+id/etResName"
+        <LinearLayout
+            android:id="@+id/linearLayout"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="52dp"
-            android:background="@drawable/textbox"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:hint="Name"
-            android:inputType="textPersonName"
-            android:padding="8dp" />
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
 
-        <EditText
-            android:id="@+id/etResEmail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/textbox"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:hint="Email-Id"
-            android:inputType="textEmailAddress"
-            android:padding="8dp" />
+            <EditText
+                android:id="@+id/etResProvFullName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="FullName (Company or Individual)"
+                android:inputType="textPersonName|textMultiLine" />
 
-        <EditText
-            android:id="@+id/etResWeb"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/textbox"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:hint="Website Name"
-            android:inputType="textPersonName"
-            android:padding="8dp" />
+            <EditText
+                android:id="@+id/etResProvEmail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Email-Id"
+                android:inputType="textEmailAddress" />
 
-        <EditText
-            android:id="@+id/etResContact"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/textbox"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:hint="Contact"
-            android:inputType="phone"
-            android:padding="8dp" />
+            <EditText
+                android:id="@+id/etResProvWeb"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Website Name"
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/etResState"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/textbox"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:hint="State"
-            android:inputType="textPersonName"
-            android:padding="8dp" />
+            <EditText
+                android:id="@+id/etResProvContact"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Contact"
+                android:maxLength="10"
+                android:inputType="phone" />
 
-        <EditText
-            android:id="@+id/etResCity"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/textbox"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:hint="City"
-            android:inputType="textPersonName"
-            android:padding="8dp" />
+            <EditText
+                android:id="@+id/etResProvState"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="State"
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/etResResType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/textbox"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:hint="Resource Type"
-            android:inputType="textPersonName"
-            android:padding="8dp" />
+            <EditText
+                android:id="@+id/etResProvCity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="City"
+                android:inputType="textPersonName" />
 
-        <EditText
-            android:id="@+id/etResDes"
-            android:layout_width="360dp"
-            android:layout_height="126dp"
-            android:layout_marginStart="2dp"
-            android:layout_marginTop="32dp"
-            android:background="@drawable/textbox"
-            android:drawablePadding="15dp"
-            android:ems="10"
-            android:gravity="start|top"
-            android:hint="Describe Your Resource"
-            android:inputType="textMultiLine"
-            android:paddingLeft="10dp"
-            android:paddingTop="5dp" />
+            <EditText
+                android:id="@+id/etResProvPincode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Pincode"
+                android:inputType="textPersonName" />
 
-        <Button
-            android:id="@+id/btnResSub"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="35dp"
-            android:layout_marginRight="50dp"
-            android:background="@drawable/button_3"
-            android:text="Submit" />
+            <EditText
+                android:id="@+id/etResProvDistrict"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="District"
+                android:inputType="textPersonName" />
 
-    </LinearLayout>
+            <EditText
+                android:id="@+id/etResProvResType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:paddingHorizontal="20dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:hint="Resource Type"
+                android:inputType="textPersonName" />
+
+            <EditText
+                android:id="@+id/etResProvResDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="132dp"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="20dp"
+                android:paddingHorizontal="24dp"
+                android:paddingVertical="16dp"
+                android:background="@drawable/textbox"
+                android:drawablePadding="15dp"
+                android:ems="10"
+                android:gravity="start|top"
+                android:hint="Describe Your Resource"
+                android:inputType="textMultiLine" />
+
+            <Button
+                android:id="@+id/btnResProvSubmit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="35dp"
+                android:layout_marginRight="50dp"
+                android:layout_marginBottom="30dp"
+                android:layout_gravity="center"
+                android:background="@drawable/button_3"
+                android:text="Submit" />
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

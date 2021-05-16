@@ -52,11 +52,6 @@ class FeedbackFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         _binding = FragmentFeedbackBinding.inflate(inflater, container, false)
-        return binding.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
 
         binding.etFBContact.addTextChangedListener(object : TextWatcher {
             override fun onTextChanged(s: CharSequence, start: Int, before: Int, count: Int) {}
@@ -73,7 +68,8 @@ class FeedbackFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable) {
                 if (binding.etFBSuggestion.text.toString().isEmpty() || binding.etFBSuggestion.text.toString().isBlank()) {
-                    binding.etFBSuggestion.error = "Please don't provide the empty input for suggestions section"
+                    binding.etFBSuggestion.error =
+                        "Please don't provide the empty input for suggestions section"
                 }
             }
         })
@@ -83,51 +79,60 @@ class FeedbackFragment : Fragment() {
             override fun beforeTextChanged(s: CharSequence, start: Int, count: Int, after: Int) {}
             override fun afterTextChanged(s: Editable) {
                 if (binding.etFBDifficultyFaced.text.toString().isEmpty() || binding.etFBDifficultyFaced.text.toString().isBlank()) {
-                    binding.etFBDifficultyFaced.error = "Please don't provide the empty input for diffculty faced section"
+                    binding.etFBDifficultyFaced.error =
+                        "Please don't provide the empty input for diffculty faced section"
                 }
             }
         })
 
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
 
         binding.btnFBSub.setOnClickListener {
             if (!checkWhetherFeedbackProvidedIsCorrect()) {
                 return@setOnClickListener
             }
 
-            val feedback = getData()
+            val feedback = getFeedbackData()
 
-            firestore
-                .collection(FEEDBACK_COLLECTION)
-                .document(feedback.feedbackId)
-                .set(feedback)
-                .addOnSuccessListener {
-                    Timber.d("Feedback Document successfully uploaded in firestore!")
-
-                    Snackbar.make(
-                        binding.btnFBSub,
-                        "Your feedback is successfully uploaded",
-                        Snackbar.LENGTH_LONG
-                    ).show()
-
-                }
-                .addOnFailureListener { e ->
-                    Timber.w("Error updating feedback document ${e.printStackTrace()}")
-
-                    Snackbar.make(
-                        binding.btnFBSub,
-                        "Error Occured while uploading your feedback.Please try again",
-                        Snackbar.LENGTH_LONG
-                    ).show()
-                }
+            uploadFeedBack(feedback)
         }
     }
 
-    private fun checkWhetherFeedbackProvidedIsCorrect(): Boolean {
+    private fun uploadFeedBack(feedback: FeedbackModel) {
+        firestore
+            .collection(FEEDBACK_COLLECTION)
+            .document(feedback.userFeedbackId)
+            .set(feedback)
+            .addOnSuccessListener {
+                Timber.d("Feedback Document successfully uploaded in firestore!")
 
+                Snackbar.make(
+                    binding.btnFBSub,
+                    "Your feedback is successfully uploaded",
+                    Snackbar.LENGTH_LONG
+                ).show()
+
+            }
+            .addOnFailureListener { e ->
+                Timber.w("Error updating feedback document ${e.printStackTrace()}")
+
+                Snackbar.make(
+                    binding.btnFBSub,
+                    "Error Occured while uploading your feedback.Please try again",
+                    Snackbar.LENGTH_LONG
+                ).show()
+            }
+    }
+
+    private fun checkWhetherFeedbackProvidedIsCorrect(): Boolean {
         var isCorrect = true
 
         if (binding.etFBContact.text.toString().isEmpty() || binding.etFBContact.text.toString().isBlank() || binding.etFBContact.text.toString().trim().length != 10) {
-            binding.etFBContact.error = "Please enter a valid phonenumber"
+            binding.etFBContact.error = "Please enter a valid phone number"
             isCorrect = false
         }
         if (binding.etFBDifficultyFaced.text.toString().isEmpty() || binding.etFBDifficultyFaced.text.toString().isBlank()) {
@@ -142,7 +147,7 @@ class FeedbackFragment : Fragment() {
         return isCorrect
     }
 
-    private fun getData(): FeedbackModel {
+    private fun getFeedbackData(): FeedbackModel {
         return FeedbackModel(
             UUID.randomUUID().toString(),
             binding.etFBContact.text.toString().trim(),
